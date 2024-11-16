@@ -1,5 +1,5 @@
 
-from sympy import symbols, sympify, integrate
+from sympy import diff, symbols, sympify, integrate
 import numpy as np
 class Regla_boole_5:
     def Regla_boole_5(self):
@@ -33,6 +33,9 @@ class Regla_boole_5:
             i = i + 5
             
             I_final = I_final + funcion 
+            sp_expr = sympify(funcion_expr)    
+            segunda_derivada = diff(sp_expr, x, 4)
+            print( "E = {}".format(((-3/8)*h**5) * segunda_derivada) )  
             print(I_final)
             
         return I_final

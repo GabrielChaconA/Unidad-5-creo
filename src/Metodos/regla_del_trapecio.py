@@ -15,6 +15,7 @@ class regla_del_trapecio:
      
 
      return
+    
     def crear_funcion(self,a,b,funcion_expr,h):
      x = symbols('x')
      valor_a_evaluar,h = 0.5, (b-a)/h

@@ -10,6 +10,9 @@ from Metodos.Regla_boole_4_5 import Regla_boole_4_5
 from Metodos.Regla_boole_5 import Regla_boole_5
 from Metodos.newton_cotes import newton_cotes
 from Metodos.segmentos_desiguales import segmentos_desiguales
+from Metodos.integracion_romberg import integracion_romberg
+from Metodos.integracion_multiple import integracion_multiple
+from Metodos.integrales_impropias import integrales_impropias
 class Menu:
     def Menu(self):
         istance_integracion_Numerica = integracion_Numerica()
@@ -24,6 +27,9 @@ class Menu:
         instance_Regla_boole_5 = Regla_boole_5()
         instance_newton_cotes = newton_cotes()
         instance_segmentos_desiguales = segmentos_desiguales()
+        instance_romberg = integracion_romberg()
+        instance_multiple = integracion_multiple()
+        instance_impropias = integrales_impropias()
 
         
         print("SELECCIONES OPCION")
@@ -41,9 +47,12 @@ class Menu:
         10. Regla de Boole 5
         11. Newton-Cotes
         12. Segmentos desiguales 
+        13.Inegracion Romberg
+        14. Integracion multiple
+        15.integrales impropias
         """)
 
-        opcion = "12"
+        opcion = "5"
         print("Selecciono: {} ".format(opcion))
         if opcion == "1":
             istance_integracion_Numerica.integracion_Numerica()
@@ -68,7 +77,13 @@ class Menu:
         if opcion == "11":
             instance_newton_cotes.newton_cotes()
         if opcion == "12":
-            instance_segmentos_desiguales.segmentos_desiguales()
+            instance_segmentos_desiguales.segmentos_desiguales() 
+        if opcion == "13":
+            instance_romberg.integracion_romberg()
+        if opcion == "14":
+            instance_multiple.integracion_multiple()
+        if opcion == "15":#preguntarle a edgar 
+            instance_impropias.integrales_impropias()
             
 
 

@@ -1,4 +1,4 @@
-from sympy import symbols, sympify, integrate
+from sympy import diff, symbols, sympify, integrate
 import numpy as np
 class simpson_1_3:
     def simpson_1_3(self):
@@ -45,4 +45,7 @@ class simpson_1_3:
         break
      print(y)
      print("{}/{} 4({}) +2({}) + {} + {}".format(h,3,impares,pares,y[0],y[len(y)-1]))
+     sp_expr = sympify(funcion_expr)    
+     segunda_derivada = diff(sp_expr, x, 4)
+     print( "E = {}".format(((-3/8)*h**5) * segunda_derivada) )  
      return y, (h/3)*((4*impares)+(2*pares)+y[0]+y[len(y)-1])

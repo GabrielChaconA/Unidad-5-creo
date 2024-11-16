@@ -1,4 +1,4 @@
-from sympy import symbols, sympify, integrate
+from sympy import diff, symbols, sympify, integrate
 import numpy as np
 class simpson_3_8:
     def simpson_3_8(self):
@@ -26,5 +26,7 @@ class simpson_3_8:
             i = i + 3
             
             I_final = I_final + funcion 
-            
+        sp_expr = sympify(funcion_expr)    
+        segunda_derivada = diff(sp_expr, x, 4)
+        print( "E = {}".format(((-3/8)*h**5) * segunda_derivada) )   
         return I_final
