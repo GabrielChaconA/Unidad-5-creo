@@ -3,9 +3,9 @@ import numpy as np
 class simpson_1_3:
     def simpson_1_3(self):
      x = symbols('x')
-     funcion_str = "exp(x**4)"
+     funcion_str = "x**2-3*x-9"
      funcion_expr = sympify(funcion_str)
-     limite_a, limite_b , n= -1,1,6
+     limite_a, limite_b , n= 0,4,120
      print(funcion_expr.subs(x, -0.6))
 
       # Integra la expresión

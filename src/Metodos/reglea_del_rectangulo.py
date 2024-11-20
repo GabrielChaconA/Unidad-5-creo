@@ -5,9 +5,9 @@ class reglea_del_rectangulo:
     def reglea_del_rectangulo(self):
       x_tabla = np.array([])
       x = symbols('x')
-      funcion_str = "exp(x**2)"
+      funcion_str = "x**2-3*x-9"
       funcion_expr = sympify(funcion_str)
-      limite_a, limite_b , n= 0,1,5
+      limite_a, limite_b , n= 0,4,120
 
 
       # Integra la expresión

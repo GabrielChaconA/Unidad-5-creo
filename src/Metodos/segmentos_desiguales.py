@@ -3,26 +3,38 @@ import numpy as np
 
 class segmentos_desiguales:
     def segmentos_desiguales(self):
-        x_lista = np.array([-1,-0.9,-0.7,-0.3,0,0.4,1])
-        i ,F = 0,0
-        x = symbols('x')
-        funcion_str = "exp(x**4)"
-        funcion_expr = sympify(funcion_str)
+         # Datos de la tabla (x, f(x))
+        datos = [
+            (0, -9.0), (0.0333333, -8.89889), (0.0666667, -8.79556), (0.1, -8.69),
+            (0.133333, -8.58222), (0.166667, -8.47222), (0.2, -8.36), (0.233333, -8.24556),
+            (0.266667, -8.12889), (0.3, -8.01), (0.333333, -7.88889), (0.366667, -7.76556),
+            (0.4, -7.64), (0.433333, -7.51222), (0.466667, -7.38222), (0.5, -7.25),
+            (0.533333, -7.11556), (0.566667, -6.97889), (0.6, -6.84), (0.633333, -6.69889),
+            (0.666667, -6.55556), (0.7, -6.41), (0.733333, -6.26222), (0.766667, -6.11222),
+            (0.8, -5.96), (0.833333, -5.80556), (0.866667, -5.64889), (0.9, -5.49),
+            (0.933333, -5.32889), (0.966667, -5.16556), (1.0, -5.0), (1.03333, -4.83222),
+            (1.06667, -4.66222), (1.1, -4.49), (1.13333, -4.31556), (1.16667, -4.13889),
+            (1.2, -3.96), (1.23333, -3.77889), (1.26667, -3.59556), (1.3, -3.41),
+            (1.33333, -3.22222), (1.36667, -3.03222), (1.4, -2.84), (1.43333, -2.64556),
+            (1.46667, -2.44889), (1.5, -2.25), (1.53333, -2.04889), (1.56667, -1.84556),
+            (1.6, -1.64), (1.63333, -1.43222), (1.66667, -1.22222), (1.7, -1.01),
+            (1.73333, -0.795556), (1.76667, -0.578889), (1.8, -0.36), (1.83333, -0.138889),
+            (1.86667, 0.0844444), (1.9, 0.31), (1.93333, 0.537778), (1.96667, 0.767778),
+            (2.0, 1.0)
+        ]
 
+        x, f_x = zip(*datos)  # Separar las columnas x y f(x)
+        x_lista = np.array(x)
+        f_lista = np.array(f_x)
 
+        # Inicializar variables
+        F = 0  # Acumulador del área
+        for i in range(len(x_lista) - 1):
+            h = abs(x_lista[i+1] - x_lista[i])  # Distancia entre puntos consecutivos
+            R = (h / 2) * (f_lista[i] + f_lista[i+1])  # Regla del trapecio
+            F += R
 
-        while(True):
-         h = x_lista[i]- x_lista[i+1]
-         R = (abs(h/2) )* (funcion_expr.subs(x, x_lista[i]) + funcion_expr.subs(x, x_lista[i+1]))
-         print(funcion_expr.subs(x, x_lista[i]) + funcion_expr.subs(x, x_lista[i+1]),i,abs(h/2))
-         F = R + F 
-         i+=1
-         
-         if i == len(x_lista)-1:
-            break
-         
-         
-
-
-        print(x_lista,F)
-        return
+        print("Puntos usados:", x_lista)
+        print("Área aproximada (F):", round(-F, 4))  # Redondear a 3 decimales
+        return round(F, 3)
+        

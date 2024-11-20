@@ -57,8 +57,8 @@ class Menu:
         16. impropias
         """)
 
-        #opcion = input()
-        opcion = "16"
+        opcion = input()
+        
         print("Selecciono: {} ".format(opcion))
         if opcion == "1":
             istance_integracion_Numerica.integracion_Numerica()
@@ -81,7 +81,7 @@ class Menu:
         if opcion == "10":
             instance_Regla_boole_5.Regla_boole_5()
         if opcion == "11":
-            instance_newton_cotes.newton_cotes()
+            instance_newton_cotes = newton_cotes()
         if opcion == "12":
             instance_segmentos_desiguales.segmentos_desiguales() 
         if opcion == "13":
