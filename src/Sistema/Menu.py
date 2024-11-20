@@ -12,7 +12,10 @@ from Metodos.newton_cotes import newton_cotes
 from Metodos.segmentos_desiguales import segmentos_desiguales
 from Metodos.integracion_romberg import integracion_romberg
 from Metodos.integracion_multiple import integracion_multiple
-from Metodos.integrales_impropias import integrales_impropias
+from Metodos.gauss_legendre import gauss_legendre
+from Metodos.Integrales_Impropias import impropias
+
+
 class Menu:
     def Menu(self):
         istance_integracion_Numerica = integracion_Numerica()
@@ -29,7 +32,8 @@ class Menu:
         instance_segmentos_desiguales = segmentos_desiguales()
         instance_romberg = integracion_romberg()
         instance_multiple = integracion_multiple()
-        instance_impropias = integrales_impropias()
+        instance_legendre = gauss_legendre()
+        
 
         
         print("SELECCIONES OPCION")
@@ -49,10 +53,12 @@ class Menu:
         12. Segmentos desiguales 
         13.Inegracion Romberg
         14. Integracion multiple
-        15.integrales impropias
+        15.gauss_legendre
+        16. impropias
         """)
 
-        opcion = "5"
+        #opcion = input()
+        opcion = "16"
         print("Selecciono: {} ".format(opcion))
         if opcion == "1":
             istance_integracion_Numerica.integracion_Numerica()
@@ -82,8 +88,11 @@ class Menu:
             instance_romberg.integracion_romberg()
         if opcion == "14":
             instance_multiple.integracion_multiple()
-        if opcion == "15":#preguntarle a edgar 
-            instance_impropias.integrales_impropias()
+        if opcion == "15":
+            instance_legendre.gauss_legendre()
+        if opcion == "16":
+            instance_integrales_impropias  = impropias()
+
             
 
 
